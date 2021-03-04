@@ -3,10 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
+let initialState = [];
+function points(state = initialState, action) {
+  if (action.type === "ADD_POINT") {
+    return [...state, action.payload];
+  }
+  if (action.type === 'USER_LOGOUT') {
+    state = initialState
+  }
+  return state;
+}
+
+const store = createStore(points);
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

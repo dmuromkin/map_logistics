@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.mapField {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.Map,
+#map {
+  height: 1080px;
+  width: 100%;
+}
+
+.gutter-row{
+  font-size: 10px;
+  
+}
